@@ -24,8 +24,10 @@ class _QuizState extends State<Quiz> {
   void chooseAnswer(answers) {
     selectedAnswers.add(answers);
     if (selectedAnswers.length == questions.length) {
-      selectedAnswers = [];
-      activeScreen = 'start-screen';
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = 'start-screen';
+      });
     }
   }
 
