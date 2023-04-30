@@ -16,15 +16,22 @@ class _QuestionScreenState extends State<QuestionScreen> {
     final currentQuestion = questions[1];
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(style: TextStyle(color: (Colors.white)), currentQuestion.text),
-          const SizedBox(height: 30),
-          ...currentQuestion.answers.map((answers) {
-            return AnswerButton(answer: answers, onTap: () {});
-          })
-        ],
+      child: Container(
+        margin: const EdgeInsets.only(left: 15, right: 15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+                style: const TextStyle(color: (Colors.white)),
+                textAlign: TextAlign.center,
+                currentQuestion.text),
+            const SizedBox(height: 30),
+            ...currentQuestion.answers.map((answers) {
+              return AnswerButton(answer: answers, onTap: () {});
+            })
+          ],
+        ),
       ),
     );
   }
